@@ -15,7 +15,7 @@ enum RealtimeVoiceError: Error, Equatable {
 @MainActor
 final class StubRealtimeVoiceService: RealtimeVoiceService {
     func start(selection: PracticeSelection, markdown: MarkdownDocument) async throws {
-        guard selection.points.count == 3 else { throw RealtimeVoiceError.connectionFailed }
+        throw RealtimeVoiceError.unsupportedByChatGPTPlusProOAuth
     }
 
     func stop() async {}

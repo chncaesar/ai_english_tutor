@@ -11,7 +11,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("ChatGPT") {
+                Section("ChatGPT 登录") {
                     HStack {
                         VStack(alignment: .leading) {
                             Text("ChatGPT")
@@ -20,13 +20,13 @@ struct SettingsView: View {
                         }
                         Spacer()
                         StatusPillView(
-                            text: model.isLoggedIn ? "Active" : "Required",
+                            text: model.isLoggedIn ? "已启用" : "必需",
                             color: model.isLoggedIn ? .green : .orange
                         )
                     }
                 }
 
-                Section("Markdown") {
+                Section("Markdown 课程") {
                     if let document = model.markdownDocument {
                         Text(document.title).font(.headline)
                         ScrollView {
@@ -36,19 +36,19 @@ struct SettingsView: View {
                                 .padding(.vertical, 8)
                         }
                         .frame(maxHeight: 220)
-                        Button("Upload New Markdown") { isImporterPresented = true }
-                        Button("Delete Markdown", role: .destructive) { model.deleteMarkdown() }
+                        Button("上传新的 Markdown") { isImporterPresented = true }
+                        Button("删除 Markdown", role: .destructive) { model.deleteMarkdown() }
                     } else {
                         Text("当前还没有 Markdown 内容，请先上传。")
                             .foregroundStyle(.secondary)
-                        Button("Upload Markdown") { isImporterPresented = true }
+                        Button("上传 Markdown") { isImporterPresented = true }
                     }
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle("设置")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Done") { dismiss() }
+                    Button("完成") { dismiss() }
                 }
             }
             .fileImporter(

@@ -18,10 +18,10 @@ struct MainVoiceChatView: View {
                 Spacer()
             }
             .padding(24)
-            .navigationTitle("English Voice")
+            .navigationTitle("英语语音练习")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Settings") { isSettingsPresented = true }
+                    Button("设置") { isSettingsPresented = true }
                 }
             }
             .sheet(isPresented: $isSettingsPresented) {
@@ -32,13 +32,13 @@ struct MainVoiceChatView: View {
 
     private var emptyMarkdownState: some View {
         VStack(spacing: 16) {
-            Text("Upload a Markdown lesson first")
+            Text("请先上传 Markdown 课程")
                 .font(.title.bold())
                 .multilineTextAlignment(.center)
-            Text("The voice tutor needs lesson content before it can choose three practice points.")
+            Text("语音老师需要课程内容，才能选择三个练习点。")
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
-            Button("Open Settings") { isSettingsPresented = true }
+            Button("打开设置") { isSettingsPresented = true }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
         }
@@ -47,7 +47,7 @@ struct MainVoiceChatView: View {
     private var voiceState: some View {
         VStack(spacing: 18) {
             Text(statusText).font(.caption.bold()).foregroundStyle(statusColor)
-            Text(model.markdownDocument?.title ?? "English Voice")
+            Text(model.markdownDocument?.title ?? "英语语音练习")
                 .font(.title.bold())
                 .multilineTextAlignment(.center)
 
@@ -67,15 +67,31 @@ struct MainVoiceChatView: View {
                 }
                 .frame(maxWidth: .infinity)
             } else {
-                Text("Ready to prepare three practice points.")
+                Text("可以开始准备三个练习点。")
                     .foregroundStyle(.secondary)
+            }
+
+            if model.isPracticeTimeLimitReached {
+                Text("本次练习已达到 20 分钟，请结束并保存练习记录。")
+                    .font(.footnote)
+                    .foregroundStyle(.orange)
+                    .multilineTextAlignment(.center)
+            }
+
+            if model.latestPracticeRecord != nil {
+                Text("最近一次练习记录已保存到本机 Markdown。")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
             }
 
             VoiceOrbView(state: model.voiceState)
 
             Button(primaryButtonTitle) {
                 Task {
-                    if model.practiceSelection == nil {
+                    if model.voiceState == .listening || model.isPracticeTimeLimitReached {
+                        await model.finishVoicePractice()
+                    } else if model.practiceSelection == nil {
                         await model.preparePractice()
                     } else {
                         await model.startVoicePractice()
@@ -90,13 +106,13 @@ struct MainVoiceChatView: View {
     private var statusText: String {
         switch model.voiceState {
         case .notConnected:
-            "Not connected"
+            "未连接"
         case .connecting:
-            "Connecting"
+            "连接中"
         case .listening:
-            "Listening"
+            "正在听"
         case .speaking:
-            "Speaking"
+            "正在说"
         case .error(let message):
             message
         }
@@ -112,7 +128,11 @@ struct MainVoiceChatView: View {
     }
 
     private var primaryButtonTitle: String {
-        model.practiceSelection == nil ? "Prepare Practice" : "Start Voice Practice"
+        if model.voiceState == .listening || model.isPracticeTimeLimitReached {
+            return "结束并保存记录"
+        }
+
+        return model.practiceSelection == nil ? "准备练习" : "开始语音练习"
     }
 
     private var practicePointColumns: [GridItem] {

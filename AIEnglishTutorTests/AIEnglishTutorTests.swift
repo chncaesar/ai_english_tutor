@@ -13,11 +13,24 @@ final class AIEnglishTutorTests: XCTestCase {
         XCTAssertEqual(model.route, .mainVoiceChat)
     }
 
-    func testLogoutResetsVoiceState() {
+    func testLogoutResetsVoiceState() async {
         let model = AppModel(isLoggedIn: true)
         model.voiceState = .listening
-        model.markLoggedOut()
+        await model.markLoggedOut()
         XCTAssertEqual(model.route, .firstUseLogin)
         XCTAssertEqual(model.voiceState, .notConnected)
+    }
+
+    func testChatGPTSignInShowsChineseBlockerWithoutFakeLogin() async {
+        let model = AppModel(isLoggedIn: false)
+
+        await model.signInWithChatGPT()
+
+        XCTAssertFalse(model.isLoggedIn)
+        XCTAssertEqual(model.route, .firstUseLogin)
+        XCTAssertEqual(
+            model.voiceState,
+            .error("当前版本尚未完成 ChatGPT Plus/Pro 登录验证，请等待后续版本。")
+        )
     }
 }

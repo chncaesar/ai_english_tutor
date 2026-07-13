@@ -10,17 +10,25 @@ struct AIEnglishTutorApp: App {
                 switch model.route {
                 case .firstUseLogin:
                     VStack(spacing: 16) {
-                        Text("Sign in to practice English by voice")
+                        Text("登录后开始语音练习")
                             .font(.title.bold())
                             .multilineTextAlignment(.center)
-                        Text("Use your ChatGPT Plus/Pro account to start realtime speaking practice from your Markdown lesson.")
+                        Text("使用 ChatGPT Plus/Pro 账号完成登录后，才能基于 Markdown 课程进行实时口语练习。")
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
-                        Button("Continue with ChatGPT") { model.markLoggedIn() }
+                        if case .error(let message) = model.voiceState {
+                            Text(message)
+                                .font(.footnote)
+                                .foregroundStyle(.red)
+                                .multilineTextAlignment(.center)
+                        }
+                        Button("使用 ChatGPT 继续") {
+                            Task { await model.signInWithChatGPT() }
+                        }
                             .buttonStyle(.borderedProminent)
                             .controlSize(.large)
-                        DisclosureGroup("What will be stored?") {
-                            Text("ChatGPT tokens are stored securely on this device. v0.0.1 does not include a child profile, reports, cloud sync, or a public release.")
+                        DisclosureGroup("本机会保存什么？") {
+                            Text("正式登录完成后，仅在本机安全保存必要登录凭据。v0.0.1 不包含儿童档案、报告、云同步或公开发布。")
                                 .font(.footnote)
                                 .foregroundStyle(.secondary)
                                 .multilineTextAlignment(.leading)

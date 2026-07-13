@@ -108,16 +108,49 @@ status: DONE
 - 08:07:36Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 UDID 完成 Task 6 单元测试，8 个测试全部通过
 - 08:08:05Z [DONE] AIEnglishTutor/*.swift — 搜索 VoiceSessionLog、PracticeRecord、PracticeRecordService、voiceLogs 与 latestPracticeRecord 并核对生产消费关系
 - 08:08:33Z [SKIP] tests/smoke — iOS 原生应用无浏览器界面，按规则跳过 Playwright smoke test
+- 09:55:58Z [START] .superpowers/sdd/final-review.md — 读取 final review 并开始修复 C1/C2/I2/I3/I4/m1/m2
+- 09:56:39Z [DONE] AIEnglishTutor/Services/AuthService.swift — 移除硬编码 stub token 登录成功并改为抛出 ChatGPT Plus/Pro OAuth 未支持错误
+- 09:56:39Z [WARN] AIEnglishTutor/Services/AuthService.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 09:57:16Z [DONE] AIEnglishTutor/Services/RealtimeVoiceService.swift — 移除 stub 实时语音成功路径并始终暴露未验证实时语音阻塞错误
+- 09:57:16Z [WARN] AIEnglishTutor/Services/RealtimeVoiceService.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 11:26:33Z [DONE] AIEnglishTutor/Services/PracticeSelectionStore.swift — 新增最新练习选择 JSON 本地加载、保存和删除存储
+- 11:26:33Z [WARN] AIEnglishTutor/Services/PracticeSelectionStore.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 11:27:55Z [DONE] AIEnglishTutor/Services/PracticeRecordStore.swift — 新增最新练习记录 Markdown 本地文件加载、保存和删除存储
+- 11:27:55Z [WARN] AIEnglishTutor/Services/PracticeRecordStore.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 11:29:40Z [DONE] AIEnglishTutor/AppModel.swift — 接入 AuthService 登录、练习选择持久化、练习记录持久化和结束练习流程
+- 11:29:40Z [WARN] AIEnglishTutor/AppModel.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 11:31:01Z [DONE] AIEnglishTutor/AIEnglishTutorApp.swift — 首登按钮改为调用 ChatGPT 登录服务并将首登可见文案改为中文
+- 11:31:01Z [WARN] AIEnglishTutor/AIEnglishTutorApp.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 11:31:59Z [DONE] AIEnglishTutor/Views/MainVoiceChatView.swift — 主语音页文案改为中文并新增结束保存记录按钮状态
+- 11:31:59Z [WARN] AIEnglishTutor/Views/MainVoiceChatView.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 11:32:39Z [DONE] AIEnglishTutor/Views/SettingsView.swift — 设置页按钮、章节标题和状态标签改为中文
+- 11:32:39Z [WARN] AIEnglishTutor/Views/SettingsView.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 11:33:21Z [DONE] AIEnglishTutorTests/AIEnglishTutorTests.swift — 更新登出异步测试并新增 ChatGPT 登录阻塞中文错误测试
+- 11:33:21Z [WARN] AIEnglishTutorTests/AIEnglishTutorTests.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 11:34:19Z [DONE] AIEnglishTutorTests/RealtimeVoiceServiceTests.swift — 更新实时语音测试为阻塞错误并新增结束练习保存记录测试
+- 11:34:19Z [WARN] AIEnglishTutorTests/RealtimeVoiceServiceTests.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 11:35:07Z [DONE] AIEnglishTutorTests/PracticePersistenceTests.swift — 新增练习选择启动加载、Markdown 替换清理和练习记录 Markdown 文件持久化测试
+- 11:35:07Z [WARN] AIEnglishTutorTests/PracticePersistenceTests.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 11:35:59Z [DONE] AIEnglishTutor.xcodeproj — 运行 xcodegen generate 将新增存储服务和持久化测试加入工程
+- 11:36:52Z [DONE] xcodebuild — 使用指定 iOS 模拟器完成 final fix 单元测试，13 个测试全部通过
+- 11:37:52Z [DONE] AIEnglishTutor/*.swift — 搜索登录、实时语音、练习选择和练习记录相关生产消费点并核对无 fake 成功路径
+- 11:39:20Z [DONE] .superpowers/sdd/final-fix-report.md — 记录 final review 修复项、测试结果和剩余平台阻塞
 
 ## Summary
-completed: 2026-07-13T09:38:40Z
+completed: 2026-07-13T11:39:20Z
 files_changed:
-  - AIEnglishTutor.xcodeproj/project.pbxproj — 由 XcodeGen 更新工程以包含练习记录模型、服务和测试
-  - AIEnglishTutor/AppModel.swift — 新增 voiceLogs、latestPracticeRecord 与 generatePracticeRecord 本地记录生成入口
-  - AIEnglishTutor/Models/PracticeRecord.swift — 新增本地 Markdown 练习记录模型
-  - AIEnglishTutor/Models/VoiceSessionLog.swift — 新增语音会话日志模型和角色枚举
-  - AIEnglishTutor/Services/PracticeRecordService.swift — 新增练习记录 Markdown 生成服务与固定记录章节
-  - AIEnglishTutorTests/PracticeRecordServiceTests.swift — 新增练习记录 Markdown 必备章节单元测试
-  - docs/features/v0.0.1-ios/coder_progress.md — 追加 Task 6 实现、规则检查、测试和消费关系核对过程
+  - AIEnglishTutor.xcodeproj/project.pbxproj — 由 XcodeGen 更新工程以包含练习选择/记录存储和新增测试
+  - AIEnglishTutor/AIEnglishTutorApp.swift — 首登按钮改为调用 AuthService.signIn 并显示中文 OAuth 阻塞错误
+  - AIEnglishTutor/AppModel.swift — 接入认证服务、练习选择持久化、练习记录持久化、结束练习和 20 分钟状态守卫
+  - AIEnglishTutor/Services/AuthService.swift — 移除硬编码 fake token 登录成功路径并改为返回 ChatGPT Plus/Pro OAuth 未支持错误
+  - AIEnglishTutor/Services/PracticeRecordStore.swift — 新增最新练习记录 Markdown 本地文件存储
+  - AIEnglishTutor/Services/PracticeSelectionStore.swift — 新增最新练习选择本地 JSON 存储
+  - AIEnglishTutor/Services/RealtimeVoiceService.swift — 移除 stub 实时语音成功路径并改为暴露未支持错误
+  - AIEnglishTutor/Views/MainVoiceChatView.swift — 主语音页文案中文化并新增结束保存记录入口
+  - AIEnglishTutor/Views/SettingsView.swift — 设置页可见标签中文化
+  - AIEnglishTutorTests/AIEnglishTutorTests.swift — 新增登录阻塞测试并更新异步登出断言
+  - AIEnglishTutorTests/PracticePersistenceTests.swift — 新增练习选择启动加载、清理和练习记录文件保存测试
+  - AIEnglishTutorTests/RealtimeVoiceServiceTests.swift — 更新实时语音阻塞测试并覆盖结束练习保存记录流程
+  - docs/features/v0.0.1-ios/coder_progress.md — 追加 final review 修复、规则检查和测试过程
 lint: PASS (xcodebuild test passed; check-rules unavailable due missing DEEPSEEK_API_KEY)
-blockers: none
+blockers: ChatGPT Plus/Pro OAuth 与兼容实时语音端点仍待产品/平台验证，当前实现不再伪装成功

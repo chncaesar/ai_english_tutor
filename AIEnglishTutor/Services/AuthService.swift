@@ -15,26 +15,18 @@ protocol AuthService {
 }
 
 enum AuthServiceError: Error, Equatable {
+    case unsupportedByChatGPTPlusProOAuth
     case loginFailed
     case tokenRefreshFailed
 }
 
 @MainActor
 final class StubAuthService: AuthService {
-    private var session: AuthSession?
-
-    func currentSession() async throws -> AuthSession? { session }
+    func currentSession() async throws -> AuthSession? { nil }
 
     func signIn() async throws -> AuthSession {
-        let newSession = AuthSession(
-            accessToken: "stub-access-token",
-            refreshToken: "stub-refresh-token",
-            expiresAt: Date().addingTimeInterval(3600),
-            accountID: "local-test-account"
-        )
-        session = newSession
-        return newSession
+        throw AuthServiceError.unsupportedByChatGPTPlusProOAuth
     }
 
-    func signOut() async throws { session = nil }
+    func signOut() async throws {}
 }
