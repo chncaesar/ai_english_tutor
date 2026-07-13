@@ -30,15 +30,35 @@ status: DONE
 - 06:26:28Z [DONE] AIEnglishTutor.xcodeproj — 运行 xcodegen 生成包含新增 Swift 文件的工程配置
 - 06:26:14Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 UDID 完成单元测试，4 个测试全部通过
 - 06:27:34Z [DONE] AIEnglishTutor/*.swift — 搜索 MarkdownDocument、MarkdownStore、markdownDocument 与 Markdown 操作方法并核对生产消费关系
+- 06:33:15Z [START] .superpowers/sdd/task-3-brief.md — 读取 Task 3 练习准备工作流需求并确认新增模型、服务、AppModel 状态和测试
+- 06:34:08Z [DONE] AIEnglishTutor/Models/PracticeSelection.swift — 新增 PracticePoint 与 PracticeSelection Codable/Equatable 练习选择模型
+- 06:34:08Z [WARN] AIEnglishTutor/Models/PracticeSelection.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:34:52Z [DONE] AIEnglishTutor/Services/PracticePreparationService.swift — 新增练习准备协议、服务校验、本地 Markdown 兜底抽取客户端和三点选择逻辑
+- 06:34:52Z [WARN] AIEnglishTutor/Services/PracticePreparationService.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:35:27Z [DONE] AIEnglishTutor/AppModel.swift — 注入 PracticePreparationService 并新增 practiceSelection 状态与 preparePractice 错误处理
+- 06:35:27Z [WARN] AIEnglishTutor/AppModel.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:36:13Z [DONE] AIEnglishTutorTests/PracticePreparationServiceTests.swift — 新增本地兜底客户端从 Markdown 抽取内容并选择三个练习点的异步单元测试
+- 06:36:13Z [WARN] AIEnglishTutorTests/PracticePreparationServiceTests.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:36:30Z [DONE] AIEnglishTutor.xcodeproj — 运行 xcodegen generate 更新工程以包含练习选择模型、准备服务和测试文件
+- 06:37:19Z [ERROR] xcodebuild — 使用 iOS 18.6 iPhone 16 Pro UDID 测试失败，Swift 6 报告 AppModel 调用准备服务存在主线程隔离数据竞争风险
+- 06:37:19Z [DONE] AIEnglishTutor/Services/PracticePreparationService.swift — 将准备客户端协议与服务标注为 MainActor 以匹配 AppModel 的主线程状态更新
+- 06:37:19Z [WARN] AIEnglishTutor/Services/PracticePreparationService.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:38:01Z [ERROR] xcodebuild — 使用 iOS 18.6 iPhone 16 Pro UDID 测试失败，测试调用 MainActor 隔离的准备服务初始化器缺少主线程上下文
+- 06:38:01Z [DONE] AIEnglishTutorTests/PracticePreparationServiceTests.swift — 将练习准备服务测试标注为 MainActor 以匹配服务隔离上下文
+- 06:38:01Z [WARN] AIEnglishTutorTests/PracticePreparationServiceTests.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:39:51Z [DONE] AIEnglishTutor/AppModel.swift — 在保存或删除 Markdown 后清空 practiceSelection，避免练习选择继续引用旧 Markdown 内容
+- 06:39:51Z [WARN] AIEnglishTutor/AppModel.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:40:58Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 Pro UDID 完成单元测试，5 个测试全部通过
+- 06:40:58Z [DONE] AIEnglishTutor/*.swift — 搜索 PracticeSelection、PracticePoint、PracticePreparation、practiceSelection 与 preparePractice 并核对生产消费关系
 
 ## Summary
-completed: 2026-07-13T06:27:34Z
+completed: 2026-07-13T06:40:58Z
 files_changed:
-  - AIEnglishTutor.xcodeproj — 由 XcodeGen 更新工程以包含 Markdown 模型、服务和测试文件
-  - AIEnglishTutor/AppModel.swift — 接入 MarkdownStore 并新增 Markdown 文档状态、保存和删除方法
-  - AIEnglishTutor/Models/MarkdownDocument.swift — 新增 MarkdownDocument Codable/Equatable/Identifiable 模型
-  - AIEnglishTutor/Services/MarkdownStore.swift — 新增本地 JSON 保存、读取和删除服务
-  - AIEnglishTutorTests/MarkdownStoreTests.swift — 新增 MarkdownStore 保存读取删除单元测试
-  - docs/features/v0.0.1-ios/coder_progress.md — 追加 Task 2 实现、规则检查和测试过程
+  - AIEnglishTutor.xcodeproj/project.pbxproj — 由 XcodeGen 更新工程以包含练习选择模型、准备服务和测试文件
+  - AIEnglishTutor/AppModel.swift — 注入练习准备服务，新增 practiceSelection 状态、preparePractice 方法与 Markdown 变更时选择清理
+  - AIEnglishTutor/Models/PracticeSelection.swift — 新增 PracticePoint 与 PracticeSelection 练习选择模型
+  - AIEnglishTutor/Services/PracticePreparationService.swift — 新增练习准备协议、三练习点校验服务、本地 Markdown 兜底抽取客户端
+  - AIEnglishTutorTests/PracticePreparationServiceTests.swift — 新增本地兜底练习准备流程单元测试
+  - docs/features/v0.0.1-ios/coder_progress.md — 追加 Task 3 实现、规则检查、测试和生产消费核对过程
 lint: PASS (xcodebuild test passed; check-rules unavailable due missing DEEPSEEK_API_KEY)
 blockers: none
