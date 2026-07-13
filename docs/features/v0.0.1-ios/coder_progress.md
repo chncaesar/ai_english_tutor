@@ -50,15 +50,32 @@ status: DONE
 - 06:39:51Z [WARN] AIEnglishTutor/AppModel.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
 - 06:40:58Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 Pro UDID 完成单元测试，5 个测试全部通过
 - 06:40:58Z [DONE] AIEnglishTutor/*.swift — 搜索 PracticeSelection、PracticePoint、PracticePreparation、practiceSelection 与 preparePractice 并核对生产消费关系
+- 06:48:14Z [START] .superpowers/sdd/task-4-brief.md — 读取 Task 4 主语音聊天与设置 UI 需求并确认仅实现指定 SwiftUI 文件
+- 06:49:02Z [DONE] AIEnglishTutor/Views/Components/StatusPillView.swift — 新增用于登录和状态展示的胶囊标签组件
+- 06:49:02Z [WARN] AIEnglishTutor/Views/Components/StatusPillView.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:49:44Z [DONE] AIEnglishTutor/Views/Components/VoiceOrbView.swift — 新增根据 AppVoiceState 展示图标与无障碍文案的绿色语音圆环组件
+- 06:49:44Z [WARN] AIEnglishTutor/Views/Components/VoiceOrbView.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:50:31Z [DONE] AIEnglishTutor/Views/SettingsView.swift — 新增 ChatGPT 登录状态与 Markdown 上传预览删除的设置页面
+- 06:50:31Z [WARN] AIEnglishTutor/Views/SettingsView.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:51:12Z [DONE] AIEnglishTutor/Views/MainVoiceChatView.swift — 新增主语音页、空 Markdown 引导、练习点展示和设置弹窗入口
+- 06:51:12Z [WARN] AIEnglishTutor/Views/MainVoiceChatView.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:51:39Z [DONE] AIEnglishTutor/AIEnglishTutorApp.swift — 将入口路由接入首登 ChatGPT 引导与 MainVoiceChatView
+- 06:51:39Z [WARN] AIEnglishTutor/AIEnglishTutorApp.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 06:52:04Z [DONE] AIEnglishTutor.xcodeproj — 运行 xcodegen generate 更新工程以包含新增 SwiftUI 视图文件
+- 07:05:12Z [WARN] xcodebuild — 指定名称 iPhone 16 因可用模拟器匹配失败，已从列表选择 iOS 18.6 iPhone 16 UDID 4CA15A4C-9745-4FB1-AFA7-85ECD807922E 重试
+- 07:06:16Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 UDID 完成单元测试，5 个测试全部通过
+- 07:06:40Z [DONE] AIEnglishTutor/*.swift — 搜索 route、voiceState、markdownDocument、practiceSelection 与新增视图名称并核对 UI 消费关系
+- 07:06:45Z [SKIP] tests/smoke — iOS 原生应用无浏览器界面，按规则跳过 Playwright smoke test
 
 ## Summary
-completed: 2026-07-13T06:40:58Z
+completed: 2026-07-13T07:08:47Z
 files_changed:
-  - AIEnglishTutor.xcodeproj/project.pbxproj — 由 XcodeGen 更新工程以包含练习选择模型、准备服务和测试文件
-  - AIEnglishTutor/AppModel.swift — 注入练习准备服务，新增 practiceSelection 状态、preparePractice 方法与 Markdown 变更时选择清理
-  - AIEnglishTutor/Models/PracticeSelection.swift — 新增 PracticePoint 与 PracticeSelection 练习选择模型
-  - AIEnglishTutor/Services/PracticePreparationService.swift — 新增练习准备协议、三练习点校验服务、本地 Markdown 兜底抽取客户端
-  - AIEnglishTutorTests/PracticePreparationServiceTests.swift — 新增本地兜底练习准备流程单元测试
-  - docs/features/v0.0.1-ios/coder_progress.md — 追加 Task 3 实现、规则检查、测试和生产消费核对过程
+  - AIEnglishTutor.xcodeproj/project.pbxproj — 由 XcodeGen 更新工程以包含主语音页、设置页和两个组件视图
+  - AIEnglishTutor/AIEnglishTutorApp.swift — 将应用入口接入首登 ChatGPT 引导和 MainVoiceChatView
+  - AIEnglishTutor/Views/MainVoiceChatView.swift — 新增主语音聊天页、Markdown 空态引导、练习点展示和设置入口
+  - AIEnglishTutor/Views/SettingsView.swift — 新增 ChatGPT 状态与 Markdown 上传预览删除设置页面
+  - AIEnglishTutor/Views/Components/StatusPillView.swift — 新增登录和状态胶囊标签组件
+  - AIEnglishTutor/Views/Components/VoiceOrbView.swift — 新增 AppVoiceState 驱动的语音圆环组件
+  - docs/features/v0.0.1-ios/coder_progress.md — 追加 Task 4 实现、规则检查、测试和消费关系核对过程
 lint: PASS (xcodebuild test passed; check-rules unavailable due missing DEEPSEEK_API_KEY)
 blockers: none

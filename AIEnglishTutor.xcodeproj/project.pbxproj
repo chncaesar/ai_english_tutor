@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		1A4FBB7395B4678F36FBC913 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127C402D83001886C2A0DCF5 /* AppModel.swift */; };
 		205146FD2EF85C65309FC22A /* AIEnglishTutorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A5800DFDECC531FB38D30 /* AIEnglishTutorApp.swift */; };
+		25DF7F9B9FB72E394F3D37F0 /* StatusPillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059630DEC81397E95A7229F8 /* StatusPillView.swift */; };
+		28D9F70ECE4C43C77CA52B9E /* VoiceOrbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D8ABCFD2810006D218FCAE /* VoiceOrbView.swift */; };
 		30F4EEB991E72ED63538DD30 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB086E7B7D5DC2E0446848 /* MarkdownDocument.swift */; };
 		54A6FACC64D39EC45A234EAB /* MarkdownStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD3D2A079F481E486890FA /* MarkdownStoreTests.swift */; };
 		5D4D0EE2139C0DE5368FEE92 /* PracticePreparationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5384EA4FF51830A4AD61BED /* PracticePreparationService.swift */; };
 		98C01F58856C2B591088A3F8 /* AIEnglishTutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A26F73BC256DAE290D8166 /* AIEnglishTutorTests.swift */; };
+		BA07D80E71E94C92E7A0FB95 /* MainVoiceChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F01E3672BDFF0EA0AD52F3 /* MainVoiceChatView.swift */; };
 		C08DE70F19E87D9C4354BE95 /* PracticePreparationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC45121AE70D5C808BA417 /* PracticePreparationServiceTests.swift */; };
+		CF76A335F201FEDDA48D6BA9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E57597ADC1892C2A3302D59 /* SettingsView.swift */; };
 		E9332CE80A144120908C5B4C /* PracticeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD7624A44760F9260036699 /* PracticeSelection.swift */; };
 		ED79214C0BA2630F44EDE077 /* MarkdownStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDFBD5C4916BE205C5E10D8 /* MarkdownStore.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		059630DEC81397E95A7229F8 /* StatusPillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPillView.swift; sourceTree = "<group>"; };
 		0FDFBD5C4916BE205C5E10D8 /* MarkdownStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownStore.swift; sourceTree = "<group>"; };
 		127C402D83001886C2A0DCF5 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		18DD3D2A079F481E486890FA /* MarkdownStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownStoreTests.swift; sourceTree = "<group>"; };
@@ -36,11 +41,14 @@
 		29A26F73BC256DAE290D8166 /* AIEnglishTutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIEnglishTutorTests.swift; sourceTree = "<group>"; };
 		36BB086E7B7D5DC2E0446848 /* MarkdownDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
 		386E993C4260A39455BBBD0D /* AIEnglishTutor.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AIEnglishTutor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E57597ADC1892C2A3302D59 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C8919F27D2EE8847CFD340C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D2D7BA4B72786599650E82D7 /* AIEnglishTutorTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AIEnglishTutorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5384EA4FF51830A4AD61BED /* PracticePreparationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePreparationService.swift; sourceTree = "<group>"; };
 		DDD7624A44760F9260036699 /* PracticeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSelection.swift; sourceTree = "<group>"; };
 		EEEC45121AE70D5C808BA417 /* PracticePreparationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePreparationServiceTests.swift; sourceTree = "<group>"; };
+		F5F01E3672BDFF0EA0AD52F3 /* MainVoiceChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVoiceChatView.swift; sourceTree = "<group>"; };
+		F9D8ABCFD2810006D218FCAE /* VoiceOrbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceOrbView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -51,6 +59,16 @@
 				8C1071F0D8957814910C23B1 /* AIEnglishTutorTests */,
 				F2D073F589ADBCE5C30835D3 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		7EBBFB219D715DF3598CD7C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F5F01E3672BDFF0EA0AD52F3 /* MainVoiceChatView.swift */,
+				8E57597ADC1892C2A3302D59 /* SettingsView.swift */,
+				A41900F52B0DD8064BF0E8C7 /* Components */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8078A82483B3E58FF615A5F6 /* Resources */ = {
@@ -89,6 +107,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		A41900F52B0DD8064BF0E8C7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				059630DEC81397E95A7229F8 /* StatusPillView.swift */,
+				F9D8ABCFD2810006D218FCAE /* VoiceOrbView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		B262CBACD4CE306D80C8FD16 /* AIEnglishTutor */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +124,7 @@
 				8C20D2C9CDDF80FA42913221 /* Models */,
 				8078A82483B3E58FF615A5F6 /* Resources */,
 				9E4C148D5F9F219F34A51F7B /* Services */,
+				7EBBFB219D715DF3598CD7C1 /* Views */,
 			);
 			path = AIEnglishTutor;
 			sourceTree = "<group>";
@@ -186,10 +214,14 @@
 			files = (
 				205146FD2EF85C65309FC22A /* AIEnglishTutorApp.swift in Sources */,
 				1A4FBB7395B4678F36FBC913 /* AppModel.swift in Sources */,
+				BA07D80E71E94C92E7A0FB95 /* MainVoiceChatView.swift in Sources */,
 				30F4EEB991E72ED63538DD30 /* MarkdownDocument.swift in Sources */,
 				ED79214C0BA2630F44EDE077 /* MarkdownStore.swift in Sources */,
 				5D4D0EE2139C0DE5368FEE92 /* PracticePreparationService.swift in Sources */,
 				E9332CE80A144120908C5B4C /* PracticeSelection.swift in Sources */,
+				CF76A335F201FEDDA48D6BA9 /* SettingsView.swift in Sources */,
+				25DF7F9B9FB72E394F3D37F0 /* StatusPillView.swift in Sources */,
+				28D9F70ECE4C43C77CA52B9E /* VoiceOrbView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
