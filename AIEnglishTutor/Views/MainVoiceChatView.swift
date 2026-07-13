@@ -52,14 +52,20 @@ struct MainVoiceChatView: View {
                 .multilineTextAlignment(.center)
 
             if let selection = model.practiceSelection {
-                HStack {
+                LazyVGrid(columns: practicePointColumns, spacing: 8) {
                     ForEach(selection.points) { point in
                         Text(point.text)
                             .font(.caption)
-                            .padding(8)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.85)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 8)
+                            .frame(maxWidth: .infinity)
                             .background(.thinMaterial, in: Capsule())
                     }
                 }
+                .frame(maxWidth: .infinity)
             } else {
                 Text("Ready to prepare three practice points.")
                     .foregroundStyle(.secondary)
@@ -101,5 +107,9 @@ struct MainVoiceChatView: View {
 
     private var primaryButtonTitle: String {
         model.practiceSelection == nil ? "Prepare Practice" : "Start Voice Practice"
+    }
+
+    private var practicePointColumns: [GridItem] {
+        [GridItem(.adaptive(minimum: 96), spacing: 8)]
     }
 }

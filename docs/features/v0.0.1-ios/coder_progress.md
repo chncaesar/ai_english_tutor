@@ -66,13 +66,19 @@ status: DONE
 - 07:06:16Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 UDID 完成单元测试，5 个测试全部通过
 - 07:06:40Z [DONE] AIEnglishTutor/*.swift — 搜索 route、voiceState、markdownDocument、practiceSelection 与新增视图名称并核对 UI 消费关系
 - 07:06:45Z [SKIP] tests/smoke — iOS 原生应用无浏览器界面，按规则跳过 Playwright smoke test
+- 07:16:14Z [DONE] AIEnglishTutor/Views/MainVoiceChatView.swift — 将练习点固定横排改为自适应 LazyVGrid 并限制胶囊文本避免紧凑宽度溢出
+- 07:16:14Z [WARN] AIEnglishTutor/Views/MainVoiceChatView.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 07:16:14Z [DONE] AIEnglishTutor/AIEnglishTutorApp.swift — 在首登页新增 What will be stored 折叠说明及本机安全存储与 v0.0.1 范围提示
+- 07:16:14Z [WARN] AIEnglishTutor/AIEnglishTutorApp.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 07:17:22Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 UDID 完成 Task 4 修复后单元测试，5 个测试全部通过
+- 07:19:39Z [DONE] .superpowers/sdd/task-4-report.md — 追加 Task 4 review 修复报告、测试命令与 check-rules 阻塞说明
 
 ## Summary
-completed: 2026-07-13T07:08:47Z
+completed: 2026-07-13T07:19:39Z
 files_changed:
   - AIEnglishTutor.xcodeproj/project.pbxproj — 由 XcodeGen 更新工程以包含主语音页、设置页和两个组件视图
-  - AIEnglishTutor/AIEnglishTutorApp.swift — 将应用入口接入首登 ChatGPT 引导和 MainVoiceChatView
-  - AIEnglishTutor/Views/MainVoiceChatView.swift — 新增主语音聊天页、Markdown 空态引导、练习点展示和设置入口
+  - AIEnglishTutor/AIEnglishTutorApp.swift — 将应用入口接入首登 ChatGPT 引导、MainVoiceChatView 和首用存储说明
+  - AIEnglishTutor/Views/MainVoiceChatView.swift — 新增主语音聊天页、Markdown 空态引导、自适应练习点展示和设置入口
   - AIEnglishTutor/Views/SettingsView.swift — 新增 ChatGPT 状态与 Markdown 上传预览删除设置页面
   - AIEnglishTutor/Views/Components/StatusPillView.swift — 新增登录和状态胶囊标签组件
   - AIEnglishTutor/Views/Components/VoiceOrbView.swift — 新增 AppVoiceState 驱动的语音圆环组件
