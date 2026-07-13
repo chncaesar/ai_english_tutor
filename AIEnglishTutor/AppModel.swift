@@ -24,16 +24,19 @@ final class AppModel: ObservableObject {
 
     private let markdownStore: MarkdownStore
     private let preparationService: PracticePreparationService
+    private let realtimeVoiceService: RealtimeVoiceService
 
     init(
         isLoggedIn: Bool = false,
         markdownStore: MarkdownStore = MarkdownStore(),
-        preparationService: PracticePreparationService = PracticePreparationService(client: LocalPracticePreparationClient())
+        preparationService: PracticePreparationService = PracticePreparationService(client: LocalPracticePreparationClient()),
+        realtimeVoiceService: RealtimeVoiceService = StubRealtimeVoiceService()
     ) {
         self.isLoggedIn = isLoggedIn
         self.route = isLoggedIn ? .mainVoiceChat : .firstUseLogin
         self.markdownStore = markdownStore
         self.preparationService = preparationService
+        self.realtimeVoiceService = realtimeVoiceService
         self.markdownDocument = try? markdownStore.load()
     }
 
@@ -77,6 +80,27 @@ final class AppModel: ObservableObject {
             practiceSelection = try await preparationService.prepare(from: markdownDocument)
         } catch {
             voiceState = .error("无法准备本次练习内容，请稍后重试。")
+        }
+    }
+
+    func startVoicePractice() async {
+        guard let markdownDocument else {
+            voiceState = .error("当前还没有 Markdown 内容，请先上传。")
+            return
+        }
+        guard let practiceSelection else {
+            voiceState = .error("当前还没有练习内容，请先准备本次练习。")
+            return
+        }
+
+        voiceState = .connecting
+        do {
+            try await realtimeVoiceService.start(selection: practiceSelection, markdown: markdownDocument)
+            voiceState = .listening
+        } catch RealtimeVoiceError.unsupportedByChatGPTPlusProOAuth {
+            voiceState = .error("ChatGPT 登录暂不支持实时语音，请停止本版实现并反馈。")
+        } catch {
+            voiceState = .error("语音连接失败，请重新开始。")
         }
     }
 }

@@ -72,16 +72,37 @@ status: DONE
 - 07:16:14Z [WARN] AIEnglishTutor/AIEnglishTutorApp.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
 - 07:17:22Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 UDID 完成 Task 4 修复后单元测试，5 个测试全部通过
 - 07:19:39Z [DONE] .superpowers/sdd/task-4-report.md — 追加 Task 4 review 修复报告、测试命令与 check-rules 阻塞说明
+- 07:30:03Z [START] .superpowers/sdd/task-5-brief.md — 读取 Task 5 认证与实时语音边界需求并确认仅新增服务边界和 AppModel 启动入口
+- 07:31:37Z [DONE] AIEnglishTutor/Services/AuthService.swift — 新增 AuthSession、AuthService 协议、AuthServiceError 和本地 StubAuthService 认证边界
+- 07:31:37Z [WARN] AIEnglishTutor/Services/AuthService.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 07:31:37Z [DONE] AIEnglishTutor/Services/RealtimeVoiceService.swift — 新增 RealtimeVoiceService 协议、错误枚举和校验三点练习选择的 Stub 实时语音边界
+- 07:31:37Z [WARN] AIEnglishTutor/Services/RealtimeVoiceService.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 07:31:37Z [DONE] AIEnglishTutor/AppModel.swift — 注入 RealtimeVoiceService 并新增 startVoicePractice 状态流与中文错误处理
+- 07:31:37Z [WARN] AIEnglishTutor/AppModel.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 07:31:37Z [DONE] AIEnglishTutor/Views/MainVoiceChatView.swift — 将主按钮改为未准备时准备练习、已准备时启动实时语音练习
+- 07:31:37Z [WARN] AIEnglishTutor/Views/MainVoiceChatView.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 07:32:09Z [DONE] AIEnglishTutor.xcodeproj — 运行 xcodegen generate 更新工程以包含认证服务与实时语音服务文件
+- 07:34:19Z [WARN] xcodebuild — 指定名称 iPhone 16 因可用模拟器匹配失败，已从列表选择 iOS 18.6 iPhone 16 UDID 4CA15A4C-9745-4FB1-AFA7-85ECD807922E 重试
+- 07:34:19Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 UDID 完成 Task 5 单元测试，5 个测试全部通过
+- 07:35:17Z [DONE] AIEnglishTutor/*.swift — 搜索 AuthService、AuthSession、RealtimeVoiceService、RealtimeVoiceError 与 startVoicePractice 并核对服务边界生产消费关系
+- 07:35:17Z [SKIP] tests/smoke — iOS 原生应用无浏览器界面，按规则跳过 Playwright smoke test
+- 07:37:14Z [DONE] AIEnglishTutorTests/RealtimeVoiceServiceTests.swift — 新增启动语音练习成功进入 listening 与未准备练习内容时显示中文错误的单元测试
+- 07:37:14Z [WARN] AIEnglishTutorTests/RealtimeVoiceServiceTests.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 07:39:46Z [ERROR] xcodebuild — 新增 RealtimeVoiceServiceTests 后测试编译失败，MarkdownStore 初始化参数和 AppVoiceState 断言类型需修正
+- 07:39:46Z [DONE] AIEnglishTutorTests/RealtimeVoiceServiceTests.swift — 改用 MarkdownStore directory 初始化并显式断言 AppVoiceState.listening 与 AppVoiceState.error
+- 07:39:46Z [WARN] AIEnglishTutorTests/RealtimeVoiceServiceTests.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 07:41:18Z [DONE] AIEnglishTutor.xcodeproj — 重新运行 xcodegen generate 将 RealtimeVoiceServiceTests 加入测试 target
+- 07:41:18Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 UDID 完成 Task 5 修复后单元测试，7 个测试全部通过
 
 ## Summary
-completed: 2026-07-13T07:19:39Z
+completed: 2026-07-13T07:41:18Z
 files_changed:
-  - AIEnglishTutor.xcodeproj/project.pbxproj — 由 XcodeGen 更新工程以包含主语音页、设置页和两个组件视图
-  - AIEnglishTutor/AIEnglishTutorApp.swift — 将应用入口接入首登 ChatGPT 引导、MainVoiceChatView 和首用存储说明
-  - AIEnglishTutor/Views/MainVoiceChatView.swift — 新增主语音聊天页、Markdown 空态引导、自适应练习点展示和设置入口
-  - AIEnglishTutor/Views/SettingsView.swift — 新增 ChatGPT 状态与 Markdown 上传预览删除设置页面
-  - AIEnglishTutor/Views/Components/StatusPillView.swift — 新增登录和状态胶囊标签组件
-  - AIEnglishTutor/Views/Components/VoiceOrbView.swift — 新增 AppVoiceState 驱动的语音圆环组件
-  - docs/features/v0.0.1-ios/coder_progress.md — 追加 Task 4 实现、规则检查、测试和消费关系核对过程
+  - AIEnglishTutor.xcodeproj/project.pbxproj — 由 XcodeGen 更新工程以包含认证服务、实时语音服务和实时语音测试
+  - AIEnglishTutor/Services/AuthService.swift — 新增 AuthSession、AuthService 协议、认证错误和本地 StubAuthService 边界
+  - AIEnglishTutor/Services/RealtimeVoiceService.swift — 新增 RealtimeVoiceService 协议、实时语音错误和本地 StubRealtimeVoiceService 边界
+  - AIEnglishTutor/AppModel.swift — 注入 RealtimeVoiceService 并新增 startVoicePractice 状态流与中文错误处理
+  - AIEnglishTutor/Views/MainVoiceChatView.swift — 将主按钮接入准备练习或启动实时语音练习的分支行为
+  - AIEnglishTutorTests/RealtimeVoiceServiceTests.swift — 新增 AppModel 启动语音练习成功与缺少练习选择的单元测试
+  - docs/features/v0.0.1-ios/coder_progress.md — 追加 Task 5 实现、规则检查、测试和消费关系核对过程
 lint: PASS (xcodebuild test passed; check-rules unavailable due missing DEEPSEEK_API_KEY)
 blockers: none

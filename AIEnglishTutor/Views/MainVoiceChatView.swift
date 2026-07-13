@@ -74,7 +74,13 @@ struct MainVoiceChatView: View {
             VoiceOrbView(state: model.voiceState)
 
             Button(primaryButtonTitle) {
-                Task { await model.preparePractice() }
+                Task {
+                    if model.practiceSelection == nil {
+                        await model.preparePractice()
+                    } else {
+                        await model.startVoicePractice()
+                    }
+                }
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)

@@ -14,10 +14,13 @@
 		30F4EEB991E72ED63538DD30 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB086E7B7D5DC2E0446848 /* MarkdownDocument.swift */; };
 		54A6FACC64D39EC45A234EAB /* MarkdownStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DD3D2A079F481E486890FA /* MarkdownStoreTests.swift */; };
 		5D4D0EE2139C0DE5368FEE92 /* PracticePreparationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5384EA4FF51830A4AD61BED /* PracticePreparationService.swift */; };
+		6D79F11550A29AB40C9965CA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BD36E9ED91E13BD8BDA035 /* AuthService.swift */; };
 		98C01F58856C2B591088A3F8 /* AIEnglishTutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A26F73BC256DAE290D8166 /* AIEnglishTutorTests.swift */; };
+		9CA5AF0052DFB0D0E890409D /* RealtimeVoiceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A144A850728FE4982B6219 /* RealtimeVoiceServiceTests.swift */; };
 		BA07D80E71E94C92E7A0FB95 /* MainVoiceChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F01E3672BDFF0EA0AD52F3 /* MainVoiceChatView.swift */; };
 		C08DE70F19E87D9C4354BE95 /* PracticePreparationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC45121AE70D5C808BA417 /* PracticePreparationServiceTests.swift */; };
 		CF76A335F201FEDDA48D6BA9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E57597ADC1892C2A3302D59 /* SettingsView.swift */; };
+		D1B7A1CC7C30688AB1EADA0E /* RealtimeVoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1DFFB72A5A7C5CF2B11ECD /* RealtimeVoiceService.swift */; };
 		E9332CE80A144120908C5B4C /* PracticeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD7624A44760F9260036699 /* PracticeSelection.swift */; };
 		ED79214C0BA2630F44EDE077 /* MarkdownStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDFBD5C4916BE205C5E10D8 /* MarkdownStore.swift */; };
 /* End PBXBuildFile section */
@@ -46,9 +49,12 @@
 		D2D7BA4B72786599650E82D7 /* AIEnglishTutorTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AIEnglishTutorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5384EA4FF51830A4AD61BED /* PracticePreparationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePreparationService.swift; sourceTree = "<group>"; };
 		DDD7624A44760F9260036699 /* PracticeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSelection.swift; sourceTree = "<group>"; };
+		E2A144A850728FE4982B6219 /* RealtimeVoiceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeVoiceServiceTests.swift; sourceTree = "<group>"; };
+		E5BD36E9ED91E13BD8BDA035 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		EEEC45121AE70D5C808BA417 /* PracticePreparationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePreparationServiceTests.swift; sourceTree = "<group>"; };
 		F5F01E3672BDFF0EA0AD52F3 /* MainVoiceChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVoiceChatView.swift; sourceTree = "<group>"; };
 		F9D8ABCFD2810006D218FCAE /* VoiceOrbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceOrbView.swift; sourceTree = "<group>"; };
+		FD1DFFB72A5A7C5CF2B11ECD /* RealtimeVoiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeVoiceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -85,6 +91,7 @@
 				29A26F73BC256DAE290D8166 /* AIEnglishTutorTests.swift */,
 				18DD3D2A079F481E486890FA /* MarkdownStoreTests.swift */,
 				EEEC45121AE70D5C808BA417 /* PracticePreparationServiceTests.swift */,
+				E2A144A850728FE4982B6219 /* RealtimeVoiceServiceTests.swift */,
 			);
 			path = AIEnglishTutorTests;
 			sourceTree = "<group>";
@@ -101,8 +108,10 @@
 		9E4C148D5F9F219F34A51F7B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E5BD36E9ED91E13BD8BDA035 /* AuthService.swift */,
 				0FDFBD5C4916BE205C5E10D8 /* MarkdownStore.swift */,
 				D5384EA4FF51830A4AD61BED /* PracticePreparationService.swift */,
+				FD1DFFB72A5A7C5CF2B11ECD /* RealtimeVoiceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -214,11 +223,13 @@
 			files = (
 				205146FD2EF85C65309FC22A /* AIEnglishTutorApp.swift in Sources */,
 				1A4FBB7395B4678F36FBC913 /* AppModel.swift in Sources */,
+				6D79F11550A29AB40C9965CA /* AuthService.swift in Sources */,
 				BA07D80E71E94C92E7A0FB95 /* MainVoiceChatView.swift in Sources */,
 				30F4EEB991E72ED63538DD30 /* MarkdownDocument.swift in Sources */,
 				ED79214C0BA2630F44EDE077 /* MarkdownStore.swift in Sources */,
 				5D4D0EE2139C0DE5368FEE92 /* PracticePreparationService.swift in Sources */,
 				E9332CE80A144120908C5B4C /* PracticeSelection.swift in Sources */,
+				D1B7A1CC7C30688AB1EADA0E /* RealtimeVoiceService.swift in Sources */,
 				CF76A335F201FEDDA48D6BA9 /* SettingsView.swift in Sources */,
 				25DF7F9B9FB72E394F3D37F0 /* StatusPillView.swift in Sources */,
 				28D9F70ECE4C43C77CA52B9E /* VoiceOrbView.swift in Sources */,
@@ -232,6 +243,7 @@
 				98C01F58856C2B591088A3F8 /* AIEnglishTutorTests.swift in Sources */,
 				54A6FACC64D39EC45A234EAB /* MarkdownStoreTests.swift in Sources */,
 				C08DE70F19E87D9C4354BE95 /* PracticePreparationServiceTests.swift in Sources */,
+				9CA5AF0052DFB0D0E890409D /* RealtimeVoiceServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
