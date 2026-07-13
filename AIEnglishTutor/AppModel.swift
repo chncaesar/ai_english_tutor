@@ -19,10 +19,15 @@ final class AppModel: ObservableObject {
     @Published var isLoggedIn: Bool
     @Published var route: AppRoute
     @Published var voiceState: AppVoiceState = .notConnected
+    @Published var markdownDocument: MarkdownDocument?
 
-    init(isLoggedIn: Bool = false) {
+    private let markdownStore: MarkdownStore
+
+    init(isLoggedIn: Bool = false, markdownStore: MarkdownStore = MarkdownStore()) {
         self.isLoggedIn = isLoggedIn
         self.route = isLoggedIn ? .mainVoiceChat : .firstUseLogin
+        self.markdownStore = markdownStore
+        self.markdownDocument = try? markdownStore.load()
     }
 
     func markLoggedIn() {
@@ -34,5 +39,22 @@ final class AppModel: ObservableObject {
         isLoggedIn = false
         route = .firstUseLogin
         voiceState = .notConnected
+    }
+
+    func saveMarkdown(title: String, body: String) {
+        do {
+            markdownDocument = try markdownStore.save(title: title, body: body)
+        } catch {
+            voiceState = .error("无法保存 Markdown，请重试。")
+        }
+    }
+
+    func deleteMarkdown() {
+        do {
+            try markdownStore.delete()
+            markdownDocument = nil
+        } catch {
+            voiceState = .error("无法删除 Markdown，请重试。")
+        }
     }
 }
