@@ -1,0 +1,37 @@
+name: AIEnglishTutor
+options:
+  bundleIdPrefix: com.zjc
+  deploymentTarget:
+    iOS: "18.0"
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "18.0"
+targets:
+  AIEnglishTutor:
+    type: application
+    platform: iOS
+    sources:
+      - AIEnglishTutor
+    info:
+      path: AIEnglishTutor/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: AI English Tutor
+        CFBundleIdentifier: com.zjc.AIEnglishTutor
+        CFBundleShortVersionString: "0.0.1"
+        CFBundleVersion: "1"
+        UILaunchScreen: {}
+        NSMicrophoneUsageDescription: 需要使用麦克风进行英语实时语音练习。
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.zjc.AIEnglishTutor
+  AIEnglishTutorTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - AIEnglishTutorTests
+    dependencies:
+      - target: AIEnglishTutor
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
