@@ -21,10 +21,13 @@ final class AppModel: ObservableObject {
     @Published var voiceState: AppVoiceState = .notConnected
     @Published var markdownDocument: MarkdownDocument?
     @Published var practiceSelection: PracticeSelection?
+    @Published var voiceLogs: [VoiceSessionLog] = []
+    @Published var latestPracticeRecord: PracticeRecord?
 
     private let markdownStore: MarkdownStore
     private let preparationService: PracticePreparationService
     private let realtimeVoiceService: RealtimeVoiceService
+    private let practiceRecordService = PracticeRecordService()
 
     init(
         isLoggedIn: Bool = false,
@@ -102,5 +105,14 @@ final class AppModel: ObservableObject {
         } catch {
             voiceState = .error("语音连接失败，请重新开始。")
         }
+    }
+
+    func generatePracticeRecord() {
+        guard let markdownDocument, let practiceSelection else { return }
+        latestPracticeRecord = practiceRecordService.generate(
+            markdown: markdownDocument,
+            selection: practiceSelection,
+            logs: voiceLogs
+        )
     }
 }

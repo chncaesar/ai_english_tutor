@@ -93,16 +93,31 @@ status: DONE
 - 07:39:46Z [WARN] AIEnglishTutorTests/RealtimeVoiceServiceTests.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
 - 07:41:18Z [DONE] AIEnglishTutor.xcodeproj — 重新运行 xcodegen generate 将 RealtimeVoiceServiceTests 加入测试 target
 - 07:41:18Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 UDID 完成 Task 5 修复后单元测试，7 个测试全部通过
+- 08:02:23Z [START] .superpowers/sdd/task-6-brief.md — 读取 Task 6 本地 Markdown 练习记录生成需求并确认新增模型、服务、状态和测试
+- 08:03:04Z [DONE] AIEnglishTutor/Models/VoiceSessionLog.swift — 新增语音会话日志 Codable/Equatable/Identifiable 模型与角色枚举
+- 08:03:04Z [WARN] AIEnglishTutor/Models/VoiceSessionLog.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 08:03:54Z [DONE] AIEnglishTutor/Models/PracticeRecord.swift — 新增本地 Markdown 练习记录 Codable/Equatable/Identifiable 模型
+- 08:03:54Z [WARN] AIEnglishTutor/Models/PracticeRecord.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 08:05:03Z [DONE] AIEnglishTutor/Services/PracticeRecordService.swift — 新增本地 Markdown 练习记录生成服务与固定记录章节输出
+- 08:05:03Z [WARN] AIEnglishTutor/Services/PracticeRecordService.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 08:05:41Z [DONE] AIEnglishTutor/AppModel.swift — 新增语音日志、最新练习记录状态与 generatePracticeRecord 生成入口
+- 08:05:41Z [WARN] AIEnglishTutor/AppModel.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 08:06:23Z [DONE] AIEnglishTutorTests/PracticeRecordServiceTests.swift — 新增练习记录 Markdown 必备章节、练习点和后续建议断言
+- 08:06:23Z [WARN] AIEnglishTutorTests/PracticeRecordServiceTests.swift — check-rules 因缺少 DEEPSEEK_API_KEY 无法执行规则检查
+- 08:06:49Z [DONE] AIEnglishTutor.xcodeproj — 运行 xcodegen generate 更新工程以包含练习记录模型、服务和测试文件
+- 08:07:36Z [DONE] xcodebuild — 使用 iOS 18.6 iPhone 16 UDID 完成 Task 6 单元测试，8 个测试全部通过
+- 08:08:05Z [DONE] AIEnglishTutor/*.swift — 搜索 VoiceSessionLog、PracticeRecord、PracticeRecordService、voiceLogs 与 latestPracticeRecord 并核对生产消费关系
+- 08:08:33Z [SKIP] tests/smoke — iOS 原生应用无浏览器界面，按规则跳过 Playwright smoke test
 
 ## Summary
-completed: 2026-07-13T07:41:18Z
+completed: 2026-07-13T09:38:40Z
 files_changed:
-  - AIEnglishTutor.xcodeproj/project.pbxproj — 由 XcodeGen 更新工程以包含认证服务、实时语音服务和实时语音测试
-  - AIEnglishTutor/Services/AuthService.swift — 新增 AuthSession、AuthService 协议、认证错误和本地 StubAuthService 边界
-  - AIEnglishTutor/Services/RealtimeVoiceService.swift — 新增 RealtimeVoiceService 协议、实时语音错误和本地 StubRealtimeVoiceService 边界
-  - AIEnglishTutor/AppModel.swift — 注入 RealtimeVoiceService 并新增 startVoicePractice 状态流与中文错误处理
-  - AIEnglishTutor/Views/MainVoiceChatView.swift — 将主按钮接入准备练习或启动实时语音练习的分支行为
-  - AIEnglishTutorTests/RealtimeVoiceServiceTests.swift — 新增 AppModel 启动语音练习成功与缺少练习选择的单元测试
-  - docs/features/v0.0.1-ios/coder_progress.md — 追加 Task 5 实现、规则检查、测试和消费关系核对过程
+  - AIEnglishTutor.xcodeproj/project.pbxproj — 由 XcodeGen 更新工程以包含练习记录模型、服务和测试
+  - AIEnglishTutor/AppModel.swift — 新增 voiceLogs、latestPracticeRecord 与 generatePracticeRecord 本地记录生成入口
+  - AIEnglishTutor/Models/PracticeRecord.swift — 新增本地 Markdown 练习记录模型
+  - AIEnglishTutor/Models/VoiceSessionLog.swift — 新增语音会话日志模型和角色枚举
+  - AIEnglishTutor/Services/PracticeRecordService.swift — 新增练习记录 Markdown 生成服务与固定记录章节
+  - AIEnglishTutorTests/PracticeRecordServiceTests.swift — 新增练习记录 Markdown 必备章节单元测试
+  - docs/features/v0.0.1-ios/coder_progress.md — 追加 Task 6 实现、规则检查、测试和消费关系核对过程
 lint: PASS (xcodebuild test passed; check-rules unavailable due missing DEEPSEEK_API_KEY)
 blockers: none
