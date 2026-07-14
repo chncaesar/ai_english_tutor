@@ -108,4 +108,4 @@ The latest verified run used an iOS 18.6 iPhone 16 simulator and passed 13 tests
 
 ## License
 
-No license has been selected yet.
+MIT License. See `LICENSE`.
