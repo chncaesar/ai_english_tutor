@@ -58,7 +58,6 @@ AIEnglishTutor/
   Views/                  SwiftUI screens and components
   Resources/              App Info.plist
 AIEnglishTutorTests/      XCTest unit tests
-docs/                     Requirements, design docs, UI draft, and implementation plan
 project.yml               XcodeGen project definition
 ```
 
@@ -89,15 +88,6 @@ xcodebuild test -scheme AIEnglishTutor -destination 'platform=iOS Simulator,id=<
 ```
 
 The latest verified run used an iOS 18.6 iPhone 16 simulator and passed 13 tests with 0 failures.
-
-## Documentation
-
-- Requirements: `docs/requirement.md`
-- Design: `docs/superpowers/specs/2026-07-12-ai-english-tutor-design.md`
-- Learning workflow and prompts: `docs/learning-workflow-and-prompts.md`
-- ChatGPT Plus/Pro login research: `docs/openai-chatgpt-oauth-research.md`
-- UI draft: `docs/ui-v0.0.1.html`
-- Implementation plan: `docs/superpowers/plans/2026-07-13-ai-english-tutor-v0.0.1-ios.md`
 
 ## Security And Privacy Notes
 
